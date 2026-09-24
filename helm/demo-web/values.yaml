@@ -24,3 +24,9 @@ content: |
       <p>Stage 3 - Helm Upgrade</p>
     </body>
   </html>
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 20
