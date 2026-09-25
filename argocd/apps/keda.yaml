@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keda
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/DavidS17GitHub/kubernetes-platform-poc.git
+    targetRevision: main
+    path: platform/keda
+
+    helm:
+      releaseName: keda
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keda
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
