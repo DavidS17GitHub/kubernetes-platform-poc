@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-web
+  namespace: argocd
+
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/DavidS17GitHub/kubernetes-platform-poc.git
+    targetRevision: main
+    path: helm/demo-web
+
+    helm:
+      releaseName: demo-web
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: demo-gitops
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
+    syncOptions:
+      - CreateNamespace=true
