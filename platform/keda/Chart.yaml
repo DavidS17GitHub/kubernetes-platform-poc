@@ -1,0 +1,10 @@
+apiVersion: v2
+name: keda-platform
+description: KEDA installation for the Kubernetes platform PoC
+type: application
+version: 0.1.0
+
+dependencies:
+  - name: keda
+    version: 2.21.0
+    repository: https://kedacore.github.io/charts
