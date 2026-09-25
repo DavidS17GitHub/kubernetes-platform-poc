@@ -21,7 +21,7 @@ content: |
   <html>
     <body>
       <h1>Kubernetes Helm Deployment</h1>
-      <p>Stage 3 - Helm Upgrade</p>
+      <p>Stage 7 - Managed by Argo CD</p>
     </body>
   </html>
 
